@@ -1,0 +1,38 @@
+# Mirror of root docker-compose.yml for infrastructure-centric deployments
+# Run from repository root: docker compose -f infrastructure/docker-compose.yml up
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: enterprise_rag_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-enterprise_knowledge}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  chromadb:
+    image: chromadb/chroma:0.5.0
+    container_name: enterprise_rag_chromadb
+    restart: unless-stopped
+    ports:
+      - "${CHROMA_PORT:-8001}:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+      - PERSIST_DIRECTORY=/chroma/chroma
+
+  redis:
+    image: redis:7-alpine
+    container_name: enterprise_rag_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:
+  chroma_data:

@@ -1,0 +1,61 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environments
+venv/
+.venv/
+env/
+.env
+ENV/
+env.bak/
+venv.bak/
+
+# Node & Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+.npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Testing & Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.coverage.*
+junit.xml
+coverage.xml
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Database & Vector Store data
+*.sqlite3
+*.db
+data/
+chroma_data/
+storage/
+uploads/
+
+# Docker & Logs
+*.log
+docker-compose.override.yml
+
+# Environment files
+.env
+.env.production
+.env.local
+!.env.example
