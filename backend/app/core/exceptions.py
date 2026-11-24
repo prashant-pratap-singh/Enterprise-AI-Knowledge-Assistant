@@ -1,7 +1,6 @@
-"""Application-specific exceptions and error handlers."""
+"""Application-specific domain exceptions."""
 
 from typing import Any, Dict, Optional
-from fastapi import HTTPException, status
 
 
 class EnterpriseRAGException(Exception):

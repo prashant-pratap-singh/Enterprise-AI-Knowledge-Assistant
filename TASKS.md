@@ -28,21 +28,21 @@ Legend:
 - [x] Verify Phase 1 scaffolding and execute smoke test.
 
 ## Phase 2: Database Design & Persistence Layer
-- [ ] Configure SQLAlchemy 2.0 async engine and session factory (`db/session.py`, `db/base.py`).
-- [ ] Implement relational ORM models (`User`, `Organization`, `Membership`, `Workspace`, `Document`, `DocumentChunk`, `Conversation`, `Message`, `EvaluationRun`).
-- [ ] Implement PostgreSQL full-text search vector (`tsvector`) and GIN indexes on `DocumentChunk`.
-- [ ] Setup Alembic configuration and generate initial migration script.
-- [ ] Write database repository classes (`user_repo`, `workspace_repo`, `document_repo`, `chat_repo`).
-- [ ] Add unit tests for database models and relationships.
+- [x] Configure SQLAlchemy 2.0 async engine and session factory (`db/session.py`, `db/base.py`).
+- [x] Implement relational ORM models (`User`, `Organization`, `Membership`, `Workspace`, `Document`, `DocumentChunk`, `Conversation`, `Message`, `EvaluationRun`).
+- [x] Implement PostgreSQL full-text search vector (`tsvector`) and GIN indexes on `DocumentChunk`.
+- [x] Setup Alembic configuration and generate initial migration script.
+- [x] Write database repository classes (`user_repo`, `organization_repo`, `workspace_repo`, `document_repo`, `conversation_repo`).
+- [x] Add unit tests for database models and relationships (6 passing tests in `backend/tests/test_db_models.py`).
 
 ## Phase 3: Authentication, Security & RBAC
-- [ ] Implement Argon2 password hashing utility (`core/security.py`).
-- [ ] Implement JWT token generation, verification, and refresh logic.
-- [ ] Implement FastAPI security dependencies (`get_current_user`, `get_current_active_user`).
-- [ ] Implement RBAC permissions checks (`ADMIN`, `EDITOR`, `VIEWER`).
-- [ ] Implement multi-tenant workspace access authorization dependency.
-- [ ] Create auth API endpoints (`/register`, `/login`, `/refresh`, `/logout`, `/me`).
-- [ ] Add unit and security tests for authentication and tenant isolation.
+- [x] Implement Argon2 password hashing utility with secure PBKDF2 fallback (`core/security.py`).
+- [x] Implement JWT token generation, verification, and refresh logic with tamper protection.
+- [x] Implement FastAPI security dependencies (`get_current_user`, `RequireRole`, `RequireWorkspaceAccess`).
+- [x] Implement RBAC permissions checks (`ADMIN`, `EDITOR`, `VIEWER`).
+- [x] Implement multi-tenant workspace access authorization dependency.
+- [x] Create auth & organization API endpoints (`/register`, `/login`, `/refresh`, `/logout`, `/me`, `/organizations`).
+- [x] Add unit and security tests for authentication and tenant isolation (5 passing tests in `backend/tests/test_auth_security.py`).
 
 ## Phase 4: Document Ingestion Pipeline
 - [ ] Implement file upload validation (size, MIME type, empty/corrupt detection, safe filenames).
